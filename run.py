@@ -15,13 +15,28 @@ app = Flask(__name__)
 
 # The route decorator tells Flask what URL triggers the function that follows.
 # When we try to browse to the root directory, as indicated by the "/",
-# Flask triggers the index function underneath and returns "Hello, World"
+# Flask triggers the index function underneath, which and returns its value.
 @app.route("/")
 def index():
-    # Thanks to render_template(), instead of returning text, we return
-    # the HTML index file, which Flask expects to be in a directory called
-    # templates, which must be at the same level as our run.py file:
+    # Thanks to render_template(), we return the HTML index file, which
+    # Flask expects to be in a directory called templates.
+    # It must be at the same level as our run.py file:
     return render_template("index.html")
+
+
+# The route decorator binds the function to itself.
+# Hence, whenever it is called, the function is called.
+# This function is also called a 'view'.
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+# Flask looks up these views and injects the URL for each view
+# into the respective href attribute (assigned in the HTML pages).
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 # If __name__ is equal to "__main__",
