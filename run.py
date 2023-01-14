@@ -39,6 +39,12 @@ def contact():
     return render_template("contact.html")
 
 
+# Everything coming from base.html template is normally run, too.
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
+
+
 # If __name__ is equal to "__main__",
 # our app will run with the following arguments.
 # Of course, __"main"__ is the name of the default module in Python.

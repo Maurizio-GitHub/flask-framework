@@ -14,13 +14,17 @@
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('careers') }}">Careers</a></li>
             <!-- In order for our navigation links to work, we need use the Jinja templating method -->
             <!-- This method is 'url_for' and it calls the appropriate functions -->
-            <!-- The url_for() function looks up the appropriate view ['index()', 'about()', 'contact()'] -->
+            <!-- The url_for() function looks up the appropriate view ['index()', 'about()', 'contact()', 'careers()'] -->
         </ul>
     </nav>
 
-    <h1>Contact Page</h1>
+    {% block content %}
+    <!-- Here is where the specific code, for each page referring to this template, gets inserted -->
+    {% endblock %}
+
 </body>
 
 </html>
