@@ -1,5 +1,11 @@
 '''
 Before coding, the command 'pip3 install Flask' has been run in the terminal.
+'wget https://github.com/StartBootstrap/startbootstrap-clean-blog/archive/refs/tags/v5.0.10.zip'
+command has been run in the terminal to download the zipped file into 'static'.
+
+'unzip v5.0.10.zip' command has then been run to unzip its content.
+The new 6 folders have been manually moved one level up, into 'static'.
+Finally, everything else has been deleted from 'static'.
 '''
 
 import os
