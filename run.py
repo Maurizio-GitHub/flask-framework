@@ -1,11 +1,5 @@
 '''
 Before coding, the command 'pip3 install Flask' has been run in the terminal.
-'wget https://github.com/StartBootstrap/startbootstrap-clean-blog/archive/refs/tags/v5.0.10.zip'
-command has been run in the terminal to download the zipped file into 'static'.
-
-'unzip v5.0.10.zip' command has then been run to unzip its content.
-The new 6 folders have been manually moved one level up, into 'static'.
-Finally, everything else has been deleted from 'static'.
 '''
 
 import os
@@ -35,20 +29,21 @@ def index():
 # This function is also called a 'view'.
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    # The variable page_title is used to store a page-specific value:
+    return render_template("about.html", page_title="About")
 
 
 # Flask looks up these views and injects the URL for each view
 # into the respective href attribute (assigned in the HTML pages).
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", page_title="Contact")
 
 
 # Everything coming from base.html template is normally run, too.
 @app.route("/careers")
 def careers():
-    return render_template("careers.html")
+    return render_template("careers.html", page_title="Careers")
 
 
 # If __name__ is equal to "__main__",

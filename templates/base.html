@@ -1,3 +1,12 @@
+<!--
+    'wget https://github.com/StartBootstrap/startbootstrap-clean-blog/archive/refs/tags/v5.0.10.zip'
+    command has been run in the terminal to download the zipped file into 'static'.
+    'unzip v5.0.10.zip' command has then been run to unzip its content.
+
+    The new 6 folders have been manually moved one level up, into 'static'.
+    Finally, everything else has been deleted from 'static'.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Flask</title>
 </head>
 
