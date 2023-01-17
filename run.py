@@ -3,6 +3,7 @@ Before coding, the command 'pip3 install Flask' has been run in the terminal.
 '''
 
 import os
+import json
 # Flask Class imported, along with render_template() function:
 from flask import Flask, render_template
 
@@ -29,8 +30,11 @@ def index():
 # This function is also called a 'view'.
 @app.route("/about")
 def about():
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
     # The variable page_title is used to store a page-specific value:
-    return render_template("about.html", page_title="About")
+    return render_template("about.html", page_title="About", company=data)
 
 
 # Flask looks up these views and injects the URL for each view
