@@ -1,5 +1,5 @@
 <!--
-    When index.html file loads, Flask inherits everything from base.html template.
+    When about.html file loads, Flask inherits everything from base.html template.
     It looks for a block element - which we called 'content' - and injects that content into it.
 -->
 
@@ -23,24 +23,24 @@
 
             {% if loop.index % 2 != 0 %}
 			<!--
-				Creatin a for-loop using the Jinja templating language also creates an object called 'loop'.
-				That 'loop' object has a property, which is '.index', showing which iteration of the loop we are on
+				Creating a for-loop using the Jinja templating language also creates an object called 'loop'.
+				That 'loop' object has a property, which is '.index', showing which iteration of the loop we are on:
 			-->
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image image-responsive">
+                    <img src="{{ member.image_source }}" alt="Profile image for {{ member.name }}" class="featurette-image image-responsive">
                 </div>
             
             {% else %}
 
                 <div class="col-md-5">
-                    <img src="{{ member.image_source }}" alt="{{ member.name }}" class="featurette-image image-responsive">
+                    <img src="{{ member.image_source }}" alt="Profile image for {{ member.name }}" class="featurette-image image-responsive">
                 </div>
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
                     <p>{{ member.description }}</p>
                 </div>
 

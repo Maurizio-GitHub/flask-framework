@@ -37,6 +37,20 @@ def about():
     return render_template("about.html", page_title="About", company=data)
 
 
+# The angle brackets pass data from the URL path into our view below:
+@app.route("/about/<member_name>")
+def about_member(member_name):
+    member = {}
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+        for object in data:
+            if object["url"] == member_name:
+                member = object
+    # 1st 'member' is the variable name being passed through into our html file
+    # 2nd 'member' is the member object we created above (on line 43)
+    return render_template("member.html", member=member)
+
+
 # Flask looks up these views and injects the URL for each view
 # into the respective href attribute (assigned in the HTML pages).
 @app.route("/contact")
