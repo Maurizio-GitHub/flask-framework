@@ -1,17 +1,41 @@
 '''
 Before coding, the command 'pip3 install Flask' has been run in the terminal.
+
+Install Heroku within Gitpod:
+npm install -g Heroku
+
+Log In to Heroku:
+heroku login -i
+
+View your Heroku Apps:
+heroku apps
+
+Rename a Heroku App:
+heroku apps:rename NEW-NAME --app CURRENT-APP-NAME
+
+Deployed Heroku App URL:
+https://YOUR-APP-NAME.herokuapp.com
 '''
 
 import os
 import json
-# Flask Class imported, along with render_template() function:
-from flask import Flask, render_template
+# Flask Class imported, along with render_template() function.
+# To find out what HTML method is used, 'request' is imported.
+# To display some feedback to users, the flash() function is imported:
+from flask import Flask, render_template, request, flash
+
+# The env.py gets imported only if the system can find an env.py file:
+if os.path.exists("env.py"):
+    import env
 
 # Instance of Flask class. The convention is that the variable is called 'app'.
 # The first argument of the Flask class is the name of the application module.
 # Since we are using a single module, we can use __name__ which is a built-in
 # Python variable. Flask needs it to look for templates and static files.
 app = Flask(__name__)
+# The following creates the __pycache__/ directory,
+# which should go in .gitignore along with env.py:
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 # The route decorator tells Flask what URL triggers the function that follows.
@@ -53,8 +77,12 @@ def about_member(member_name):
 
 # Flask looks up these views and injects the URL for each view
 # into the respective href attribute (assigned in the HTML pages).
-@app.route("/contact")
+# 'methods=["get", "post"]' is needed when we want method=post in HTML to work.
+@app.route("/contact", methods=["get", "post"])
 def contact():
+    # This is to thank the user who submitted with a flash-message:
+    flash("Thanks {}, we have received your message!".format(
+        request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
 
