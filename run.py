@@ -1,20 +1,29 @@
 '''
 Before coding, the command 'pip3 install Flask' has been run in the terminal.
 
-Install Heroku within Gitpod:
+To install Heroku within Gitpod:
 npm install -g Heroku
 
-Log In to Heroku:
+To login to Heroku:
 heroku login -i
 
-View your Heroku Apps:
+To view your Heroku apps:
 heroku apps
 
-Rename a Heroku App:
+To rename a Heroku app:
 heroku apps:rename NEW-NAME --app CURRENT-APP-NAME
 
-Deployed Heroku App URL:
+Deployed Heroku app URL:
 https://YOUR-APP-NAME.herokuapp.com
+
+To view verbose Git remotes:
+git remote -v
+
+Creating Heroku Git remote by going to Settings and copying the Git URL link:
+git remote add heroku https://git.heroku.com/YOUR-APP-NAME.git
+
+To push code to Heroku remote:
+git push -u heroku main
 '''
 
 import os
