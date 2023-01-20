@@ -22,6 +22,12 @@ git remote -v
 Creating Heroku Git remote by going to Settings and copying the Git URL link:
 git remote add heroku https://git.heroku.com/YOUR-APP-NAME.git
 
+To create a requirements.txt file:
+pip3 freeze --local > requirements.txt
+
+To create a Procfile:
+echo web: python run.py > Procfile
+
 To push code to Heroku remote:
 git push -u heroku main
 '''
